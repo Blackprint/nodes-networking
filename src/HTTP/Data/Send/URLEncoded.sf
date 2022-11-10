@@ -1,0 +1,56 @@
+## js-global
+// If using Blackprint Sketch
+Blackprint.Sketch.registerInterface("BPIC/Network/HTTP/Data/Send/URLEncoded", {
+	template: 'Blackprint/nodes/default.sf'
+}, class extends Context.HTTPDataSendURLEncoded {
+	init(){
+		let iface = this;
+		iface.on('port.menu', Context.EventSlot, ({ menu, port }) => {
+			if(port.source !== 'input') return;
+
+			if(Object.keys(iface.input).length > 1){
+				menu.unshift({
+					title: "Remove port",
+					callback(){
+						iface.node.deletePort('input', port.name);
+					}
+				});
+			}
+
+			menu.unshift({
+				title: "Add port",
+				async callback(){
+					let val = await BPEditor.Dialog({
+						title: "Port name:",
+						input: "text",
+					});
+
+					val = val.value;
+					if(!val) return;
+
+					if(iface.input[val] != null)
+						throw new Error("Port name already exist");
+
+					iface.node.createPort('input', val, String);
+				}
+			}, {
+				title: "Rename port",
+				async callback(){
+					let val = await BPEditor.Dialog({
+						title: "Port name:",
+						text: "Current name: "+port.name,
+						input: "text",
+					});
+
+					val = val.value;
+					if(!val) return;
+
+					if(iface.input[val] != null)
+						throw new Error("Port name already exist");
+
+					iface.node.renamePort('input', port.name, val);
+				}
+			});
+		});
+	}
+});
