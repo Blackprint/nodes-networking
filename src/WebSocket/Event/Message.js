@@ -9,7 +9,9 @@ class extends Blackprint.Node {
 		Client: WebSocket,
 	};
 	static output = {
+		/** Text message received from remote */
 		TextMessage: String,
+		/** Binary message received from remote */
 		BinaryMessage: Blackprint.Port.Union([ArrayBuffer, Blob]),
 	};
 

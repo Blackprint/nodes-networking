@@ -6,9 +6,10 @@
 Blackprint.registerNode("Networking/HTTP/Request",
 class extends Blackprint.Node {
 	static input = {
+		Trigger: Blackprint.Port.Trigger(port => port.iface.node.trigger()),
 		URL: String,
 		/** HTTP method: GET, POST, PUT, DELETE */
-		Method: String,
+		Method: Blackprint.Port.Default(String, 'GET'),
 		/** Request headers */
 		Headers: Object,
 		/** Request query, will be appended on URL */
@@ -42,7 +43,7 @@ class extends Blackprint.Node {
 		this._toast = new NodeToast(iface);
 	}
 
-	async update(){
+	async trigger(){
 		let { Input, Output } = this.ref;
 
 		if(!Input.URL || !Input.Method)

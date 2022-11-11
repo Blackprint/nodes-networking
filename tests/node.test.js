@@ -35,7 +35,28 @@ test("Load required modules", async () => {
 	expect(Blackprint.nodes['Networking']).toBeDefined();
 });
 
-test.skip("Create a node", async () => {
-	instance.createNode('Network/FeatureName/Template', {id: 'The_ID'});
-	expect(instance.iface.The_ID).toBeDefined();
+// This should work without Jest's sandboxed test environment
+test.skip("Do a request", (done) => {
+	let Request = instance.createNode('Networking/HTTP/Request');
+	let URLEncoded = instance.createNode('Networking/HTTP/Data/Send/URLEncoded', {data: {input: ['name']}});
+	let asJSON = instance.createNode('Networking/HTTP/Data/Receive/JSON');
+
+	let url = new Blackprint.OutputPort(String);
+	url.value = 'https://api.agify.io/';
+
+	let query = new Blackprint.OutputPort(String);
+	query.value = 'hello';
+
+	query.connectPort(URLEncoded.input.name);	
+	url.connectPort(Request.input.URL);
+	Request.input.Query.connectPort(URLEncoded.output.Data);
+
+	Request.output.Body.connectPort(asJSON.input.Body);
+	asJSON.output.Data.once('value', ({ cable }) => {
+		console.log('ahoyy');
+		expect(cable.value.name).toBe("hello");
+		done();
+	});
+
+	Request.ref.Input.Trigger();
 });

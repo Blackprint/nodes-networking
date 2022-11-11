@@ -15,6 +15,16 @@ class extends Blackprint.Node {
 		iface.title = "URL Encoded";
 	}
 
+	imported(data){
+		let input = data?.input;
+		if(input == null) return;
+		this.deletePort('input', 'data');
+
+		for (let i=0; i < input.length; i++) {
+			this.createPort('input', input[i], String);
+		}
+	}
+
 	update(){
 		let { Input, Output } = this.ref;
 		Output.Data = {

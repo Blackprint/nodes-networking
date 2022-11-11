@@ -1,6 +1,12 @@
+/**
+ * Create client instance for WebSocket connection
+ * @summary WebSocket
+ * @blackprint node
+ */
 Blackprint.registerNode("Networking/WebSocket/Client",
 class extends Blackprint.Node {
 	static input = {
+		/** WebSocket server's URL */
 		URL: String,
 		BinaryType: Blackprint.Port.Default(String, "arraybuffer"),
 	};
