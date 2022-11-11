@@ -14,30 +14,15 @@ let Blackprint = window.Blackprint.loadScope({
 	hasInterface: true,
 });
 
-// Prepare stuff when the page is loading
-// maybe like loading our dependencies for the nodes
+// For Browser & Deno
+let WebSocket = globalThis.WebSocket;
 
-
-// Dependency should be loaded after Blackprint.loadScope
-/* Parallely load dependencies from CDN here (optional) */
-//>> imports(...) =>  sf.loader.mjs(...) or [import(..), ..];
-
-// This is just an example, remove if not needed
-// var [ SFMediaStream ] = await imports([
-// 	"https://cdn.jsdelivr.net/npm/sfmediastream@latest"
-// ]);
-
-
-/* or wait until the browser was loaded all script and the DOM was ready
- * without load another dependency
- *
- * Warning: When using this, you must modify wrapped:'mjs' to wrapped:'async-mjs'
- * on blackprint.config.js, to avoid circular waiting (because this module also waiting)
- *
- * Info: imports.task() == sf.loader.task;
- */
-// await imports.task();
-
+// For Node.js
+if(WebSocket == null){
+	WebSocket = (await import('ws')).WebSocket;
+	WebSocket.addEventListener = WebSocket.on;
+	WebSocket.removeEventListener = WebSocket.off;
+}
 
 // Global shared context (share to _init.sf)
 let Context = Blackprint.createContext('Networking');
