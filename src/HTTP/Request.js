@@ -3,7 +3,7 @@
  * @summary Perform HTTP request to an URL
  * @blackprint node
  */
-Blackprint.registerNode("Network/HTTP/Request",
+Blackprint.registerNode("Networking/HTTP/Request",
 class extends Blackprint.Node {
 	static input = {
 		URL: String,

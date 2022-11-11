@@ -1,5 +1,5 @@
 module.exports = {
-	name: "nodes-network",
+	name: "nodes-networking",
 
 	// If this set to true, the compiler will skip this config/module
 	disabled: false,
@@ -9,21 +9,21 @@ module.exports = {
 	// hardlinkTo: "./dist",
 
 	// Unique prefix for .html or .sf template
-	// Please use format 'BPIC/Network'
-	templatePrefix: "BPIC/Network",
+	// Please use format 'BPIC/Networking'
+	templatePrefix: "BPIC/Networking",
 
 	// Optional: Add header to every combined file
 	header: "/* MIT Licensed */",
 
 	// Optional: Extract registerNode's JSDocs
-	bpDocs: '@cwd/dist/nodes-network.docs.json',
+	bpDocs: '@cwd/dist/nodes-networking.docs.json',
 
 	// (Required)
 	// The .js file probably can be imported for non-browser too
 	// Maybe you want to write Node.js compatible node on ".js"
 	// and browser compatible node on ".sf" file extension
 	js:{
-		file:'@cwd/dist/nodes-network.mjs', // @cwd = directory where you start the Node.js
+		file:'@cwd/dist/nodes-networking.mjs', // @cwd = directory where you start the Node.js
 		wrapped: 'async-mjs', // Wrap the entire .js to .mjs
 
 		combine:[ // Relative to this config's directory
@@ -36,7 +36,7 @@ module.exports = {
 	// This extension can contain html, scss, and js
 	// But only use this if you only develop for browser API
 	sf:{
-		file:'@cwd/dist/nodes-network.sf', // will have sf.css and sf.mjs
+		file:'@cwd/dist/nodes-networking.sf', // will have sf.css and sf.mjs
 
 		// Use `async-mjs` if we want to use `await imports.task()` to avoid waiting this module
 		wrapped: 'async-mjs', // Wrap the entire .js in async IIFE to .mjs file

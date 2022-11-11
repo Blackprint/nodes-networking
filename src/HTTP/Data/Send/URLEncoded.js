@@ -1,4 +1,4 @@
-Blackprint.registerNode("Network/HTTP/Data/Send/URLEncoded",
+Blackprint.registerNode("Networking/HTTP/Data/Send/URLEncoded",
 class extends Blackprint.Node {
 	static input = {
 		/** You can right click this port to create a new port */
@@ -11,7 +11,7 @@ class extends Blackprint.Node {
 	constructor(instance){
 		super(instance);
 
-		let iface = this.setInterface("BPIC/Network/HTTP/Data/Send/URLEncoded");
+		let iface = this.setInterface("BPIC/Networking/HTTP/Data/Send/URLEncoded");
 		iface.title = "URL Encoded";
 	}
 
@@ -24,7 +24,7 @@ class extends Blackprint.Node {
 	}
 });
 
-Blackprint.registerInterface("BPIC/Network/HTTP/Data/Send/URLEncoded",
+Blackprint.registerInterface("BPIC/Networking/HTTP/Data/Send/URLEncoded",
 Context.HTTPDataSendURLEncoded = class extends Blackprint.Interface{
 	exportData(){
 		return {

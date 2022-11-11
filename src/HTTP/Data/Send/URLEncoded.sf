@@ -1,6 +1,6 @@
 ## js-global
 // If using Blackprint Sketch
-Blackprint.Sketch.registerInterface("BPIC/Network/HTTP/Data/Send/URLEncoded", {
+Blackprint.Sketch.registerInterface("BPIC/Networking/HTTP/Data/Send/URLEncoded", {
 	template: 'Blackprint/nodes/default.sf'
 }, class extends Context.HTTPDataSendURLEncoded {
 	init(){

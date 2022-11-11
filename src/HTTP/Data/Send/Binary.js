@@ -1,4 +1,4 @@
-Blackprint.registerNode("Network/HTTP/Data/Send/Binary",
+Blackprint.registerNode("Networking/HTTP/Data/Send/Binary",
 class extends Blackprint.Node {
 	static input = {
 		Data: Blackprint.Port.Union([Uint8Array, Blob]),

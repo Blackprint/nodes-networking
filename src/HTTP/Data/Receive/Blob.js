@@ -1,4 +1,4 @@
-Blackprint.registerNode("Network/HTTP/Data/Receive/Blob",
+Blackprint.registerNode("Networking/HTTP/Data/Receive/Blob",
 class extends Blackprint.Node {
 	static input = {Body: Response};
 	static output = {Data: Blob};

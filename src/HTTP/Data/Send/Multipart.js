@@ -1,4 +1,4 @@
-Blackprint.registerNode("Network/HTTP/Data/Send/Multipart",
+Blackprint.registerNode("Networking/HTTP/Data/Send/Multipart",
 class extends Blackprint.Node {
 	static input = {
 		/** You can right click this port to create a new port */
@@ -11,7 +11,7 @@ class extends Blackprint.Node {
 	constructor(instance){
 		super(instance);
 
-		let iface = this.setInterface("BPIC/Network/HTTP/Data/Send/Multipart");
+		let iface = this.setInterface("BPIC/Networking/HTTP/Data/Send/Multipart");
 		iface.title = "Multipart";
 	}
 
@@ -55,7 +55,7 @@ class extends Blackprint.Node {
 });
 
 // If without sketch
-Blackprint.registerInterface("BPIC/Network/HTTP/Data/Send/Multipart",
+Blackprint.registerInterface("BPIC/Networking/HTTP/Data/Send/Multipart",
 Context.HTTPDataSendMultipart = class extends Blackprint.Interface{
 	exportData(){
 		return {

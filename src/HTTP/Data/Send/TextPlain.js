@@ -1,4 +1,4 @@
-Blackprint.registerNode("Network/HTTP/Data/Send/TextPlain",
+Blackprint.registerNode("Networking/HTTP/Data/Send/TextPlain",
 class extends Blackprint.Node {
 	static input = {
 		/** You can right click this port to create a new port */

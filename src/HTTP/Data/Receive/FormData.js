@@ -1,4 +1,4 @@
-Blackprint.registerNode("Network/HTTP/Data/Receive/FormData",
+Blackprint.registerNode("Networking/HTTP/Data/Receive/FormData",
 class extends Blackprint.Node {
 	static input = {Body: Response};
 	static output = {Data: FormData};

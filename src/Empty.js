@@ -1,7 +1,7 @@
 if(false){ // Avoid executing line below when this file being compiled
 // You can just copy and paste code below as a template for creating nodes
 
-Blackprint.registerNode("Network/FeatureName/Empty",
+Blackprint.registerNode("Networking/FeatureName/Empty",
 class extends Blackprint.Node {
 	static input = {};
 	static output = {};
@@ -14,7 +14,7 @@ class extends Blackprint.Node {
 	}
 });
 
-Blackprint.registerInterface('BPIC/Network/FeatureName/Empty',
+Blackprint.registerInterface('BPIC/Networking/FeatureName/Empty',
 Context.IFace.Empty = class EmptyIFace extends Blackprint.Interface{
 	constructor(node){
 		super(node);
@@ -23,7 +23,7 @@ Context.IFace.Empty = class EmptyIFace extends Blackprint.Interface{
 	}
 });
 
-Blackprint.Sketch.registerInterface('BPIC/Network/FeatureName/Empty', {
+Blackprint.Sketch.registerInterface('BPIC/Networking/FeatureName/Empty', {
 	template: null
 }, Context.IFace.Empty);
 
