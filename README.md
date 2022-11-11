@@ -1,4 +1,4 @@
-[![NPM](https://img.shields.io/npm/v/@blackprint/nodes-network.svg)](https://www.npmjs.com/package/@blackprint/nodes-network) [![Build Status](https://github.com/blackprint/nodes-network/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/blackprint/nodes-network/actions/workflows/build.yml)
+[![NPM](https://img.shields.io/npm/v/@blackprint/nodes-networking.svg)](https://www.npmjs.com/package/@blackprint/nodes-networking) [![Build Status](https://github.com/blackprint/nodes-networking/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/blackprint/nodes-networking/actions/workflows/build.yml)
 
 ## Networking nodes for Blackprint
 This module gives you an ability to interact with networking stuff with [Blackprint](https://github.com/Blackprint/Blackprint).
@@ -8,7 +8,7 @@ Please specify the version to avoid breaking changes.
 
 ```js
 Blackprint.loadModuleFromURL([
-  'https://cdn.jsdelivr.net/npm/@blackprint/nodes-network@0.0.1/dist/nodes-network.mjs'
+  'https://cdn.jsdelivr.net/npm/@blackprint/nodes-networking@0.0.1/dist/nodes-networking.mjs'
 ], {
   // Turn this on if you want to load .sf.js, and .sf.css
   // only with single .mjs
@@ -18,7 +18,7 @@ Blackprint.loadModuleFromURL([
 
 ## Development URL
 You can use this link to load unpublished nodes and still under development on GitHub.
-> `https://cdn.jsdelivr.net/gh/Blackprint/nodes-network@dist/nodes-network.mjs?1`
+https://cdn.jsdelivr.net/gh/Blackprint/nodes-networking@dist/nodes-networking.mjs?1
 
 Please append `/url-here?random-number` if your browser still using the cached files after the repository was updated.
 
@@ -26,7 +26,7 @@ Please append `/url-here?random-number` if your browser still using the cached f
 ## Local module server for development
 ```sh
 $ cd /your/project/folder
-$ git clone --depth 1 --recurse-submodules https://github.com/blackprint/nodes-network.git .
+$ git clone --depth 1 --recurse-submodules https://github.com/blackprint/nodes-networking.git .
 $ pnpm i
 $ npm start
  >> [Browsersync] Access URLs:
