@@ -1,3 +1,7 @@
+/**
+ * @summary HTTP Data Receive
+ * @blackprint
+ */
 Blackprint.registerNode("Networking/HTTP/Data/Receive/JSON",
 class extends Blackprint.Node {
 	static input = {Body: Response};

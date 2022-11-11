@@ -1,3 +1,7 @@
+/**
+ * @summary HTTP Data Send
+ * @blackprint
+ */
 Blackprint.registerNode("Networking/HTTP/Data/Send/Multipart",
 class extends Blackprint.Node {
 	static input = {
