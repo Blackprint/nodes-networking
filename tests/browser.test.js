@@ -20,7 +20,7 @@ require("@blackprint/sketch/dist/blackprint.sf.js");
 // Please change `test.only()` into `test()`
 
 let instance = null;
-test.only('Blackprint.Sketch does exist on window', async () => {
+test('Blackprint.Sketch does exist on window', async () => {
 	expect(window.Blackprint.Sketch).toBeDefined();
 
 	// Create an instance where we can create nodes or import JSON
@@ -39,8 +39,8 @@ test("Load required modules", async () => {
 	Blackprint.Environment.isNode = false;
 
 	// Alternative for Blackprint.loadModuleFromURL(...);
-	await import("../dist/nodes-network.mjs"); // For Browser/Node.js
-	await import("../dist/nodes-network.sf.mjs"); // For Browser UI
+	await import("../dist/nodes-networking.mjs"); // For Browser/Node.js
+	await import("../dist/nodes-networking.sf.mjs"); // For Browser UI
 
 	// Wait and avoid Jest's test environment being torn down
 	await Blackprint.getContext('Network');
@@ -50,7 +50,7 @@ test("Load required modules", async () => {
 	expect(Blackprint.nodes['Network']).toBeDefined();
 });
 
-test("Create a node", async () => {
+test.skip("Create a node", async () => {
 	instance.createNode('Network/FeatureName/Template', {id: 'The_ID'});
 	expect(instance.iface.The_ID).toBeDefined();
 });

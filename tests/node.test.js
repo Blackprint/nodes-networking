@@ -19,13 +19,13 @@ jest.setTimeout(60e3); // 1 minute
 // Please change `test.only()` into `test()`
 
 // This may took longer to finish if also loading additional modules
-test.only("Load required modules", async () => {
+test("Load required modules", async () => {
 	// Force it as Node.js environment
 	Blackprint.Environment.isBrowser = false;
 	Blackprint.Environment.isNode = true;
 
 	// Alternative for Blackprint.loadModuleFromURL(...);
-	await import("../dist/nodes-network.mjs"); // For Browser/Node.js
+	await import("../dist/nodes-networking.mjs"); // For Browser/Node.js
 
 	// Wait and avoid Jest's test environment being torn down
 	await Blackprint.getContext('Network');
@@ -35,7 +35,7 @@ test.only("Load required modules", async () => {
 	expect(Blackprint.nodes['Network']).toBeDefined();
 });
 
-test("Create a node", async () => {
+test.skip("Create a node", async () => {
 	instance.createNode('Network/FeatureName/Template', {id: 'The_ID'});
 	expect(instance.iface.The_ID).toBeDefined();
 });
