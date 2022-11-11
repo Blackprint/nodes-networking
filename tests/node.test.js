@@ -13,7 +13,7 @@ test('Blackprint does exist on window', async () => {
 	instance = new Blackprint.Engine();
 });
 
-jest.setTimeout(60e3); // 1 minute
+jest.setTimeout(30e3); // 1 minute
 
 // If you're ready to create unit test for your module
 // Please change `test.only()` into `test()`
@@ -28,11 +28,11 @@ test("Load required modules", async () => {
 	await import("../dist/nodes-networking.mjs"); // For Browser/Node.js
 
 	// Wait and avoid Jest's test environment being torn down
-	await Blackprint.getContext('Network');
+	await Blackprint.getContext('Networking');
 	await new Promise(resolve => setTimeout(resolve, 1000));
 
 	// Check if the nodes has been registered
-	expect(Blackprint.nodes['Network']).toBeDefined();
+	expect(Blackprint.nodes['Networking']).toBeDefined();
 });
 
 test.skip("Create a node", async () => {

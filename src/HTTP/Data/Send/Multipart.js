@@ -56,7 +56,7 @@ class extends Blackprint.Node {
 
 // If without sketch
 Blackprint.registerInterface("BPIC/Networking/HTTP/Data/Send/Multipart",
-Context.HTTPDataSendMultipart = class extends Blackprint.Interface{
+Context.IFace.HTTPDataSendMultipart = class extends Blackprint.Interface {
 	exportData(){
 		return {
 			input: Object.keys(this.input)

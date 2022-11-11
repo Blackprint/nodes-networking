@@ -2,7 +2,7 @@
 // If using Blackprint Sketch
 Blackprint.Sketch.registerInterface("BPIC/Networking/HTTP/Data/Send/Multipart", {
 	template: 'Blackprint/nodes/default.sf'
-}, class extends Context.HTTPDataSendMultipart {
+}, class extends Context.IFace.HTTPDataSendMultipart {
 	init(){
 		let iface = this;
 		let defaultPortType = Blackprint.Port.Union([String, Number, Uint8Array, Blob]);

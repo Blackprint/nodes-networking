@@ -25,7 +25,7 @@ class extends Blackprint.Node {
 });
 
 Blackprint.registerInterface("BPIC/Networking/HTTP/Data/Send/URLEncoded",
-Context.HTTPDataSendURLEncoded = class extends Blackprint.Interface{
+Context.IFace.HTTPDataSendURLEncoded = class extends Blackprint.Interface{
 	exportData(){
 		return {
 			input: Object.keys(this.input)

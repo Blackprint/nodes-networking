@@ -2,15 +2,19 @@
  * @jest-environment jsdom
  */
 
-require("@blackprint/engine");
-
 // === For Browser Environment ===
 window.ResizeObserver = class{};
 window.sf = require("scarletsframe/dist/scarletsframe.min.js");
 
+// Load engine after the framework
+require("@blackprint/engine");
+
 // Disable loader for browser, because we're testing with Node.js
 sf.loader.turnedOff = true;
 sf.loader.task = false;
+
+// Polyfill
+globalThis.Response = class{};
 
 require("@blackprint/sketch/dist/blackprint.min.js");
 require("@blackprint/sketch/dist/blackprint.sf.js");
@@ -27,7 +31,7 @@ test('Blackprint.Sketch does exist on window', async () => {
 	instance = new Blackprint.Sketch();
 });
 
-jest.setTimeout(60e3); // 1 minute
+jest.setTimeout(30e3); // 1 minute
 
 // This may took longer to finish if also loading additional modules
 test("Load required modules", async () => {
@@ -43,11 +47,11 @@ test("Load required modules", async () => {
 	await import("../dist/nodes-networking.sf.mjs"); // For Browser UI
 
 	// Wait and avoid Jest's test environment being torn down
-	await Blackprint.getContext('Network');
+	await Blackprint.getContext('Networking');
 	await new Promise(resolve => setTimeout(resolve, 1000));
 
 	// Check if the nodes has been registered
-	expect(Blackprint.nodes['Network']).toBeDefined();
+	expect(Blackprint.nodes['Networking']).toBeDefined();
 });
 
 test.skip("Create a node", async () => {

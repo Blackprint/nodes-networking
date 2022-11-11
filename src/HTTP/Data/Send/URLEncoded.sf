@@ -2,7 +2,7 @@
 // If using Blackprint Sketch
 Blackprint.Sketch.registerInterface("BPIC/Networking/HTTP/Data/Send/URLEncoded", {
 	template: 'Blackprint/nodes/default.sf'
-}, class extends Context.HTTPDataSendURLEncoded {
+}, class extends Context.IFace.HTTPDataSendURLEncoded {
 	init(){
 		let iface = this;
 		iface.on('port.menu', Context.EventSlot, ({ menu, port }) => {
