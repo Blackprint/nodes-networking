@@ -14,15 +14,19 @@
     "build-prod": "blackprint build production"
   },
   "devDependencies": {
-    "scarletsframe": "0.35.x",
+    "@blackprint/cli-tools": "0.3.x",
     "@blackprint/engine": "0.8.x",
     "@blackprint/sketch": "0.8.x",
-    "@blackprint/cli-tools": "0.3.x",
-    "jest": "28.x",
-    "jest-environment-node": "28.x",
-    "jest-environment-jsdom": "28.x"
+    "jest": "29.x",
+    "jest-environment-jsdom": "29.x",
+    "jest-environment-node": "29.x",
+    "scarletsframe": "0.35.x"
   },
   "keywords": [
     "blackprint"
-  ]
+  ],
+  "dependencies": {
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.15.0",
+    "ws": "^8.11.0"
+  }
 }
