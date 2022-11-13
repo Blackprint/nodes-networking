@@ -45,11 +45,10 @@ class extends Blackprint.Node {
 
 	async trigger(){
 		let { Input, Output } = this.ref;
+		let toast = this._toast;
 
 		if(!Input.URL || !Input.Method)
-			return this._toast.warn("URL and Method must not be empty string");
-
-		this._toast.clear();
+			return toast.warn("URL and Method must not be empty string");
 
 		let craft = {
 			method: Input.Method.toUpperCase(),
@@ -70,19 +69,23 @@ class extends Blackprint.Node {
 			url += (url.includes('?') ? '&' : '?') + Input.Query.data;
 
 		try {
+			toast.warn("Requesting");
 			data = await fetch(url, craft);
+			toast.warn();
 		} catch(e) {
-			this._toast.error(e.message);
+			toast.error(e.message);
 		}
 
 		Output.Body = data;
 
 		if(data != null){
+			toast.success("Success");
 			Output.Headers = data.headers;
 			Output.Status = data.status;
 			Output.Success = true;
 		}
 		else{
+			toast.warn("Request failed");
 			Output.Headers = null;
 			Output.Status = 0;
 			Output.Success = false;
