@@ -1,7 +1,7 @@
 {
   "name": "@blackprint/nodes-networking",
-  "description": "Description for your Blackprint nodes",
-  "version": "0.0.1",
+  "description": "Networking utility for Blackprint",
+  "version": "0.0.2",
   "license": "MIT",
   "repository": {
     "type": "git",
