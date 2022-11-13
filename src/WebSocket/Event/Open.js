@@ -27,10 +27,8 @@ class extends Blackprint.Node {
 		let client = Input.Client;
 		let callback = ev => { Output.Open = ev; }
 
-		client.addEventListener('open', callback);
-		this._unlisten = function(){
-			client.removeEventListener('open', callback);
-		}
+		client.on('open', callback);
+		this._unlisten = ()=> client.off('open', callback);
 	}
 
 	destroy(){

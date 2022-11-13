@@ -33,10 +33,8 @@ class extends Blackprint.Node {
 			else Output.BinaryMessage = ev.data;
 		}
 
-		client.addEventListener('message', callback);
-		this._unlisten = function(){
-			client.removeEventListener('message', callback);
-		}
+		client.on('message', callback);
+		this._unlisten = ()=> client.off('message', callback);
 	}
 
 	destroy(){
